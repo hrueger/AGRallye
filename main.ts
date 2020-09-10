@@ -70,6 +70,9 @@ function createWindows(): void {
     ipcMain.on("update-teams", (data: any) => {
         //
     });
+    ipcMain.on("setup-countdown", (...data: any) => {
+        frontendWindow.emit("setup-countdown", ...data);
+    });
 
     backendWindow.on("closed", () => {
         app.quit();

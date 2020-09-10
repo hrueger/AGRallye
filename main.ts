@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable global-require */
 import {
-    app, BrowserWindow, screen, ipcMain,
+    app, BrowserWindow, ipcMain,
 } from "electron";
 import * as path from "path";
 import * as url from "url";

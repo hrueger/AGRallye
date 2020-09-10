@@ -1,1 +1,23 @@
-<p>backend works!</p>
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-2 h-100">
+            <h1>Teams</h1>
+
+        </div>
+        <div class="col-8 h-100 border-right border-left border-secondary">
+            <h1>Punkte</h1>
+        </div>
+        <div class="col-2 h-100">
+            <h1>Einstellungen</h1>
+            <h3>Countdown</h3>
+            <select [(ngModel)]="countdownMode">
+                <option value="zero">Bis Uhrzeit</option>
+                <option value="timespan">Zeitspanne</option>
+            </select>
+            <input class="form-control" type="number" *ngIf="countdownMode == 'zero'" [(ngModel)]="zeroHours" placeholder="Stunden">
+            <input class="form-control" type="number" *ngIf="countdownMode == 'zero'" [(ngModel)]="zeroMinutes" placeholder="Minuten">
+            <input class="form-control" type="number" *ngIf="countdownMode == 'timespan'" [(ngModel)]="minutes" placeholder="Minuten">
+            <button class="btn btn-outline-primary" (click)="updateCountdown()">Aktualisieren</button>
+        </div>
+    </div>
+</div>

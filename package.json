@@ -34,6 +34,7 @@
         "electron-updater": "^4.3.4",
         "ngx-countdown": "^10.0.1",
         "rxjs": "~6.6.0",
+        "sweetalert2": "^10.0.2",
         "tslib": "^2.0.0",
         "zone.js": "~0.10.2"
     },

@@ -2,15 +2,28 @@
     <div class="row h-100">
         <div class="col-2 h-100">
             <h1>Teams</h1>
-
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action" (click)="currentTeamIdx = index" *ngFor="let team of teams; index as index">{{team.name}}
+                    <small class="float-right">{{getSum(team)}}</small>
+                </button>
+            </div>
+            <button class="mt-5 btn btn-outline-success" (click)="addTeam()">Team hinzufügen</button>
         </div>
         <div class="col-8 h-100 border-right border-left border-secondary">
             <h1>Punkte</h1>
+            <div class="alert alert-warning" *ngIf="currentTeamIdx === undefined">Kein Team ausgewählt</div>
+            <div *ngIf="currentTeamIdx !== undefined">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let task of teams[currentTeamIdx].tasks">{{task.task}}<span class="float-right">{{task.points}}</span></li>
+                </ul>
+                <div class="alert alert-warning" *ngIf="teams[currentTeamIdx].tasks.length == 0">Das Team hat noch keine Aufgaben abgeschlossen</div>
+                <button class="mt-5 btn btn-outline-success" (click)="addTask()">Aufgabe hinzufügen</button>
+            </div>
         </div>
         <div class="col-2 h-100">
             <h1>Einstellungen</h1>
             <h3>Countdown</h3>
-            <select [(ngModel)]="countdownMode">
+            <select class="custom-select" [(ngModel)]="countdownMode">
                 <option value="zero">Bis Uhrzeit</option>
                 <option value="timespan">Zeitspanne</option>
             </select>

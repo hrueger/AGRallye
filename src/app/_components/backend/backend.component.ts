@@ -1,3 +1,4 @@
+import { Titlebar, Color } from "custom-electron-titlebar";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -7,6 +8,9 @@ import { Component, OnInit } from "@angular/core";
 })
 export class BackendComponent implements OnInit {
     ngOnInit(): void {
-        //
+        const t = new Titlebar({
+            backgroundColor: Color.fromHex("#ECECEC"),
+        });
+        console.log(t);
     }
 }

@@ -26,14 +26,18 @@
         <div class="col-3 h-100">
             <h1>Einstellungen</h1>
             <h3>Countdown</h3>
-            <select class="custom-select" [(ngModel)]="countdownMode">
+            <select class="custom-select mb-2" [(ngModel)]="countdownMode">
                 <option value="zero">Bis Uhrzeit</option>
                 <option value="timespan">Zeitspanne</option>
             </select>
             <input class="form-control" type="number" *ngIf="countdownMode == 'zero'" [(ngModel)]="zeroHours" placeholder="Stunden">
             <input class="form-control" type="number" *ngIf="countdownMode == 'zero'" [(ngModel)]="zeroMinutes" placeholder="Minuten">
             <input class="form-control" type="number" *ngIf="countdownMode == 'timespan'" [(ngModel)]="minutes" placeholder="Minuten">
-            <button class="btn btn-outline-primary" (click)="updateCountdown()">Aktualisieren</button>
+            <button class="btn btn-outline-primary mt-2" (click)="updateCountdown()">Aktualisieren</button>
+
+            <div class="countdown display-3">
+                <countdown *ngIf="showCountdown" #cd [config]="config"></countdown>
+            </div>
         </div>
     </div>
 </div>

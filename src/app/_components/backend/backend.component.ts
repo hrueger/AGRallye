@@ -18,6 +18,12 @@ export class BackendComponent implements OnInit {
     public teams: Team[] = [];
     public currentTeamIdx: number;
 
+    public showCountdown = true;
+    public config = {
+        leftTime: 60 * 60,
+        stopTime: undefined,
+    };
+
     constructor() {
         this.teams = JSON.parse(localStorage.getItem("teams") || "null") || [];
     }
@@ -37,6 +43,18 @@ export class BackendComponent implements OnInit {
 
     public updateCountdown(): void {
         remote.ipcMain.emit("setup-countdown", this.countdownMode, this.countdownMode == "zero" ? [this.zeroHours, this.zeroMinutes] : this.minutes);
+        if (this.countdownMode == "zero") {
+            this.config.leftTime = undefined;
+            this.config.stopTime = new Date();
+            this.config.stopTime.setHours(this.zeroHours);
+            this.config.stopTime.setMinutes(this.zeroMinutes);
+        } else {
+            this.config.leftTime = this.minutes * 60;
+        }
+        this.showCountdown = false;
+        setTimeout(() => {
+            this.showCountdown = true;
+        }, 100);
     }
 
     public deleteTeam(event: Event, index: number): void {

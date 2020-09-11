@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/scss/bootstrap.scss";
-@import "../node_modules/sweetalert2/dist/sweetalert2.css"
+@import "../node_modules/sweetalert2/dist/sweetalert2.css";
+.w-80 {
+    width: 80%;
+}

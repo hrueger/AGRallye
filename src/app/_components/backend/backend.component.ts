@@ -20,7 +20,6 @@ export class BackendComponent implements OnInit {
 
     constructor() {
         this.teams = JSON.parse(localStorage.getItem("teams") || "null") || [];
-        this.sendTeams();
     }
 
     ngOnInit(): void {
@@ -30,6 +29,10 @@ export class BackendComponent implements OnInit {
             menu: undefined,
             titleHorizontalAlignment: "left",
         });
+        this.sendTeams();
+        setTimeout(() => {
+            this.sendTeams();
+        }, 1000);
     }
 
     public updateCountdown(): void {

@@ -1,7 +1,11 @@
-<h1 class="display-1">
-    <countdown *ngIf="showCountdown" #cd [config]="config"></countdown>
-</h1>
-
-<pre>
-{{teams | json}}
-</pre>
+<main>
+    <h1 class="display-1 countdown">
+        <countdown *ngIf="showCountdown" #cd [config]="config"></countdown>
+    </h1>
+    <div class="mt-5">
+        <div class="w-80" *ngFor="let team of teams">
+            <div class="line" [style.width]="((team | sumPoints) / maxPoints * 100) + '%'"></div>
+            <div class="team-box p-2" [style.left]="((team | sumPoints) / maxPoints * 100) + '%'">{{team.name}}</div>
+        </div>
+    </div>
+</main>

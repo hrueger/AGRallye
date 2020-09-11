@@ -32,9 +32,9 @@ function createWindows(): void {
     });
     frontendWindow = new BrowserWindow({
         icon: path.join(__dirname, "src/assets/icons/favicon.png"),
-        x: externalDisplay.bounds.x,
-        y: externalDisplay.bounds.y,
-        fullscreen: true,
+        x: externalDisplay?.bounds?.x || 0,
+        y: externalDisplay?.bounds?.y || 0,
+        fullscreen: !!externalDisplay,
         webPreferences: {
             nodeIntegration: true,
             webSecurity: false,

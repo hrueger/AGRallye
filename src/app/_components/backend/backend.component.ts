@@ -125,4 +125,8 @@ export class BackendComponent implements OnInit {
         });
         this.saveTeams();
     }
+
+    public showPlaces(event: Event): void {
+        remote.ipcMain.emit("show-places", (event.target as HTMLInputElement)?.checked);
+    }
 }

@@ -3,19 +3,35 @@
     background-color: #fff;
 }
 
-.team-box {
+.team-box-holder {
     position: relative;
     width: fit-content;
     background-color: transparent;
-    border: 2px solid rgb(0, 183, 255);
     height: 5rem;
     top: -3rem;
-    span.points {
-        width: 100%;
-        text-align: center;
-        display: block;
-        font-size: 150%;
-        font-weight: bold;
+    .team-box {
+        border: 2px solid rgb(0, 183, 255);
+        display: inline-block;
+        span.points {
+            width: 100%;
+            text-align: center;
+            display: block;
+            font-size: 150%;
+            font-weight: bold;
+        }
+    }
+    .place-box {
+        font-size: 250%;
+        display: inline-block;
+        span.border-round {
+            border: 2px solid #fff;
+            border-radius: 50rem;
+            width: 4rem;
+            height: 4rem;
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+        }
     }
 }
 
@@ -41,7 +57,6 @@ main {
 
 .lines {
     position: absolute;
-    height: 100vh;
     width: 100vw;
     top: 0;
     left: 0;

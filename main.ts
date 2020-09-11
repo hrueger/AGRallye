@@ -73,6 +73,9 @@ function createWindows(): void {
     ipcMain.on("setup-countdown", (...data: any) => {
         frontendWindow.emit("setup-countdown", ...data);
     });
+    ipcMain.on("show-places", (...data: any) => {
+        frontendWindow.emit("show-places", ...data);
+    });
 
     backendWindow.on("closed", () => {
         app.quit();

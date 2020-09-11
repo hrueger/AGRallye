@@ -3,7 +3,10 @@
     <div class="mt-5">
         <div class="w-80" *ngFor="let team of teams">
             <div class="line" [style.width]="((team | sumPoints) / maxPoints * 100) + '%'"></div>
-            <div class="team-box px-3 py-1" [style.left]="((team | sumPoints) / maxPoints * 100) + '%'">{{team.name}}<span class="points">{{team | sumPoints}}</span></div>
+            <div class="team-box-holder" [style.left]="((team | sumPoints) / maxPoints * 100) + '%'">
+                <div class="team-box px-3 py-1">{{team.name}}<span class="points">{{team | sumPoints}}</span></div>
+                <div *ngIf="showPlaces" class="place-box px-3 py-1"><span class="border-round">{{getPlace(team)}}.</span></div>
+            </div>
         </div>
     </div>
     <div class="lines">

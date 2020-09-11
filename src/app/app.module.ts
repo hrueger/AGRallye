@@ -44,7 +44,7 @@ const routes: Routes = [
         CountdownModule,
         RouterModule.forRoot(routes, { useHash: true }),
     ],
-    providers: [{ provide: LOCALE_ID, useValue: "de" }],
+    providers: [{ provide: LOCALE_ID, useValue: "de" }, SumPointsPipe],
     bootstrap: [AppComponent],
 })
 export class AppModule { }

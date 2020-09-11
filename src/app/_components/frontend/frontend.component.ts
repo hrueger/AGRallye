@@ -4,6 +4,7 @@ import {
 import { remote } from "electron";
 import { CountdownComponent } from "ngx-countdown";
 import { Team } from "../../_models/Team";
+import { SumPointsPipe } from 'src/app/_pipes/sum-points.pipe';
 
 declare const FlipClock: any;
 declare const $: any;
@@ -21,6 +22,8 @@ export class FrontendComponent implements OnInit {
         leftTime: 60 * 60,
         stopTime: undefined,
     };
+
+    public showPlaces = false;
     @ViewChild("cd", { static: false }) private countdown: CountdownComponent;
     showCountdown = true;
 
@@ -54,5 +57,30 @@ export class FrontendComponent implements OnInit {
                 this.teams = teams;
             });
         });
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        remote.ipcMain.on("show-places", (v: boolean) => {
+            this.zone.run(() => {
+                this.showPlaces = v;
+            });
+        });
+    }
+
+    public getPlace(team: Team): number {
+        const teamsToSort = [];
+        for (const t of this.teams) {
+            teamsToSort.push(t);
+        }
+        return teamsToSort.sort((a, b) => {
+            const aPoints = new SumPointsPipe().transform(a);
+            const bPoints = new SumPointsPipe().transform(b);
+            if (aPoints < bPoints) {
+                return 1;
+            }
+            if (bPoints < aPoints) {
+                return -1;
+            }
+            return 0;
+        }).indexOf(team) + 1;
     }
 }

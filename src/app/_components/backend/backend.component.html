@@ -4,7 +4,8 @@
             <h1>Teams</h1>
             <div class="list-group">
                 <button type="button" class="list-group-item list-group-item-action" (click)="currentTeamIdx = index" *ngFor="let team of teams; index as index">{{team.name}}
-                    <small class="float-right">{{getSum(team)}}</small>
+                    <button class="float-right btn text-danger p-0 ml-2" (click)="deleteTeam($event, index)">x</button>
+                <span class="float-right">{{getSum(team)}}</span>
                 </button>
             </div>
             <button class="mt-5 btn btn-outline-success" (click)="addTeam()">Team hinzufügen</button>

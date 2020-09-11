@@ -39,6 +39,24 @@ export class BackendComponent implements OnInit {
         remote.ipcMain.emit("setup-countdown", this.countdownMode, this.countdownMode == "zero" ? [this.zeroHours, this.zeroMinutes] : this.minutes);
     }
 
+    public deleteTeam(event: Event, index: number): void {
+        event.preventDefault();
+        event.stopPropagation();
+        Swal.fire({
+            showConfirmButton: true,
+            confirmButtonText: "Team löschen",
+            showCancelButton: true,
+            focusCancel: true,
+            title: "Soll das Team wirklich gelöscht werden?",
+        }).then((r) => {
+            if (r.isConfirmed) {
+                this.teams = this.teams.filter((_, idx) => idx !== index);
+                this.currentTeamIdx = undefined;
+                this.saveTeams();
+            }
+        });
+    }
+
     public async addTeam(): Promise<void> {
         this.teams.push({
             name: (await Swal.fire({

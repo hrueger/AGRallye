@@ -58,12 +58,13 @@ export class BackendComponent implements OnInit {
         this.teams[this.currentTeamIdx].tasks.push({
             task: (await Swal.fire({
                 input: "text",
-                title: "Teamnamen eingeben",
+                title: "Aufgabentitel eingeben",
             }) as any).value,
-            points: (await Swal.fire({
+            points: parseInt((await Swal.fire({
                 input: "number",
                 title: "Punkte eingeben",
-            }) as any).value,
+                inputValue: "1",
+            }) as any).value) || 0,
         });
         this.saveTeams();
     }

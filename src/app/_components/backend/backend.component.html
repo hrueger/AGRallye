@@ -10,7 +10,7 @@
             <button class="mt-5 btn btn-outline-success" (click)="addTeam()">Team hinzufügen</button>
         </div>
         <div class="col-8 h-100 border-right border-left border-secondary">
-            <h1>Punkte</h1>
+            <h1>Punkte{{currentTeamIdx !== undefined && getSum(teams[currentTeamIdx]) ? ": " + getSum(teams[currentTeamIdx]) : ""}}</h1>
             <div class="alert alert-warning" *ngIf="currentTeamIdx === undefined">Kein Team ausgewählt</div>
             <div *ngIf="currentTeamIdx !== undefined">
                 <ul class="list-group">

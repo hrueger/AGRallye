@@ -30,8 +30,11 @@ export class BackendComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        const t = new Titlebar({
-            backgroundColor: Color.fromHex("#ECECEC"),
+        // eslint-disable-next-line no-new
+        new Titlebar({
+            backgroundColor: Color.fromHex("#FFFFFF"),
+            menu: undefined,
+            titleHorizontalAlignment: "left",
         });
     }
 

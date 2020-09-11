@@ -36,8 +36,12 @@
             <button class="btn btn-outline-primary mt-2" (click)="updateCountdown()">Aktualisieren</button>
 
             <h3 class="mt-4">Platzierungen</h3>
-            <input type="checkbox" id="showPlaces" value="true" (change)="showPlaces($event)" class="custom-checkbox">
-            <label for="showPlaces" class="custom-control-label">Platzierungen anzeigen</label>
+
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" id="showPlaces" value="true" (change)="showPlaces($event)" class="custom-control-input">
+                <label for="showPlaces" class="custom-control-label">Platzierungen anzeigen</label>
+            </div>
 
             <div class="countdown display-3">
                 <countdown *ngIf="showCountdown" #cd [config]="config"></countdown>

@@ -11,11 +11,13 @@
             <button class="mt-5 btn btn-outline-success" (click)="addTeam()">Team hinzufügen</button>
         </div>
         <div class="col-6 h-100 border-right border-left border-secondary">
-            <h1>Punkte{{currentTeamIdx !== undefined && (teams[currentTeamIdx] | sumPoints) ? ": " + (teams[currentTeamIdx] | sumPoints) : ""}}</h1>
+            <h1>{{currentTeamIdx !== undefined ? teams[currentTeamIdx].name + " - " : ""}}Punkte{{currentTeamIdx !== undefined && (teams[currentTeamIdx] | sumPoints) ? ": " + (teams[currentTeamIdx] | sumPoints) : ""}}</h1>
             <div class="alert alert-warning" *ngIf="currentTeamIdx === undefined">Kein Team ausgewählt</div>
             <div *ngIf="currentTeamIdx !== undefined">
                 <ul class="list-group">
-                    <li class="list-group-item" *ngFor="let task of teams[currentTeamIdx].tasks">{{task.task}}<span class="float-right">{{task.points}}</span></li>
+                    <li class="list-group-item" *ngFor="let task of teams[currentTeamIdx].tasks; index as taskIndex">{{task.task}}
+                        <button class="float-right btn text-danger p-0 ml-2" (click)="deleteTask(taskIndex)">x</button>
+                        <span class="float-right">{{task.points}}</span></li>
                 </ul>
                 <div class="alert alert-warning" *ngIf="teams[currentTeamIdx].tasks.length == 0">Das Team hat noch keine Aufgaben abgeschlossen</div>
                 <button class="mt-5 btn btn-outline-success" (click)="addTask()">Aufgabe hinzufügen</button>

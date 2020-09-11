@@ -57,6 +57,22 @@ export class BackendComponent implements OnInit {
         });
     }
 
+    public deleteTask(index: number): void {
+        Swal.fire({
+            showConfirmButton: true,
+            confirmButtonText: "Aufgabe löschen",
+            showCancelButton: true,
+            focusCancel: true,
+            title: "Soll diese Aufgabe wirklich gelöscht werden?",
+        }).then((r) => {
+            if (r.isConfirmed) {
+                this.teams[this.currentTeamIdx].tasks = this.teams[this.currentTeamIdx]
+                    .tasks.filter((_, idx) => idx !== index);
+                this.saveTeams();
+            }
+        });
+    }
+
     public async addTeam(): Promise<void> {
         this.teams.push({
             name: (await Swal.fire({

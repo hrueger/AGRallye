@@ -68,7 +68,7 @@ function createWindows(): void {
     }
 
     ipcMain.on("update-teams", (data: any) => {
-        //
+        frontendWindow.emit("update-teams", ...data);
     });
     ipcMain.on("setup-countdown", (...data: any) => {
         frontendWindow.emit("setup-countdown", ...data);

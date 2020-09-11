@@ -3,6 +3,7 @@ import {
 } from "@angular/core";
 import { remote } from "electron";
 import { CountdownComponent } from "ngx-countdown";
+import { Team } from "../../_models/Team";
 
 declare const FlipClock: any;
 declare const $: any;
@@ -13,7 +14,7 @@ declare const $: any;
     styleUrls: ["./frontend.component.scss"],
 })
 export class FrontendComponent implements OnInit {
-    constructor(private zone: NgZone) {}
+    public teams: Team[];
     public zero: any = new Date(2020, 10, 9, 20, 0);
     public config = {
         leftTime: 60 * 60,
@@ -21,6 +22,8 @@ export class FrontendComponent implements OnInit {
     };
     @ViewChild("cd", { static: false }) private countdown: CountdownComponent;
     showCountdown = true;
+
+    constructor(private zone: NgZone) {}
 
     ngOnInit(): void {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -41,6 +44,13 @@ export class FrontendComponent implements OnInit {
                         this.showCountdown = true;
                     }, 100);
                 }
+            });
+        });
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        remote.ipcMain.on("update-teams", (teams: Team[]) => {
+            this.zone.run(() => {
+                this.teams = teams;
             });
         });
     }

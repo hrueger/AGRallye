@@ -2,14 +2,7 @@ import { Titlebar, Color } from "custom-electron-titlebar";
 import { Component, OnInit } from "@angular/core";
 import { remote } from "electron";
 import Swal from "sweetalert2";
-
-type Team = {
-    name: string,
-    tasks: {
-        task: string,
-        points: number,
-    }[],
-}
+import { Team } from "../../_models/Team";
 
 @Component({
     selector: "app-backend",
@@ -27,6 +20,7 @@ export class BackendComponent implements OnInit {
 
     constructor() {
         this.teams = JSON.parse(localStorage.getItem("teams") || "null") || [];
+        this.sendTeams();
     }
 
     ngOnInit(): void {
@@ -73,6 +67,11 @@ export class BackendComponent implements OnInit {
 
     private saveTeams() {
         localStorage.setItem("teams", JSON.stringify(this.teams));
+        this.sendTeams();
+    }
+
+    private sendTeams() {
+        remote.ipcMain.emit("update-teams", this.teams);
     }
 
     public async addTask(): Promise<void> {

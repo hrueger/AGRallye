@@ -25,6 +25,10 @@ export class BackendComponent implements OnInit {
     public teams: Team[] = [];
     public currentTeamIdx: number;
 
+    constructor() {
+        this.teams = JSON.parse(localStorage.getItem("teams") || "null") || [];
+    }
+
     ngOnInit(): void {
         const t = new Titlebar({
             backgroundColor: Color.fromHex("#ECECEC"),
@@ -43,6 +47,11 @@ export class BackendComponent implements OnInit {
             }) as any).value,
             tasks: [],
         });
+        this.saveTeams();
+    }
+
+    private saveTeams() {
+        localStorage.setItem("teams", JSON.stringify(this.teams));
     }
 
     public async addTask(): Promise<void> {
@@ -56,6 +65,7 @@ export class BackendComponent implements OnInit {
                 title: "Punkte eingeben",
             }) as any).value,
         });
+        this.saveTeams();
     }
 
     public getSum(team: Team): number {

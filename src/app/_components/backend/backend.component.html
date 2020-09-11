@@ -5,13 +5,13 @@
             <div class="list-group">
                 <button type="button" class="list-group-item list-group-item-action" (click)="currentTeamIdx = index" *ngFor="let team of teams; index as index">{{team.name}}
                     <button class="float-right btn text-danger p-0 ml-2" (click)="deleteTeam($event, index)">x</button>
-                <span class="float-right">{{getSum(team)}}</span>
+                <span class="float-right">{{team | sumPoints}}</span>
                 </button>
             </div>
             <button class="mt-5 btn btn-outline-success" (click)="addTeam()">Team hinzufügen</button>
         </div>
         <div class="col-6 h-100 border-right border-left border-secondary">
-            <h1>Punkte{{currentTeamIdx !== undefined && getSum(teams[currentTeamIdx]) ? ": " + getSum(teams[currentTeamIdx]) : ""}}</h1>
+            <h1>Punkte{{currentTeamIdx !== undefined && (teams[currentTeamIdx] | sumPoints) ? ": " + (teams[currentTeamIdx] | sumPoints) : ""}}</h1>
             <div class="alert alert-warning" *ngIf="currentTeamIdx === undefined">Kein Team ausgewählt</div>
             <div *ngIf="currentTeamIdx !== undefined">
                 <ul class="list-group">

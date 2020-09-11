@@ -15,6 +15,7 @@ declare const $: any;
 })
 export class FrontendComponent implements OnInit {
     public teams: Team[];
+    public maxPoints = 60;
     public zero: any = new Date(2020, 10, 9, 20, 0);
     public config = {
         leftTime: 60 * 60,

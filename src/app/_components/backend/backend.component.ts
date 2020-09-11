@@ -88,8 +88,4 @@ export class BackendComponent implements OnInit {
         });
         this.saveTeams();
     }
-
-    public getSum(team: Team): number {
-        return team.tasks.map((t) => t.points).reduce((a, b) => a + b, 0);
-    }
 }

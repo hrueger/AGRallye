@@ -10,6 +10,7 @@ import { AppComponent } from "./app.component";
 import { FrontendComponent } from "./_components/frontend/frontend.component";
 import { BackendComponent } from "./_components/backend/backend.component";
 import { CountdownModule } from 'ngx-countdown';
+import { SumPointsPipe } from './_pipes/sum-points.pipe';
 
 registerLocaleData(localeDe, localeDeExtra);
 
@@ -33,6 +34,7 @@ const routes: Routes = [
         AppComponent,
         FrontendComponent,
         BackendComponent,
+        SumPointsPipe,
     ],
     imports: [
         BrowserModule,

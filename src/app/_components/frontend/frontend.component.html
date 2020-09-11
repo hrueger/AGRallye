@@ -1,11 +1,15 @@
 <main>
-    <h1 class="display-1 countdown">
-        <countdown *ngIf="showCountdown" #cd [config]="config"></countdown>
-    </h1>
+    <h1 class="display-1 px-3">Schulhausrallye</h1>
     <div class="mt-5">
         <div class="w-80" *ngFor="let team of teams">
             <div class="line" [style.width]="((team | sumPoints) / maxPoints * 100) + '%'"></div>
-            <div class="team-box p-2" [style.left]="((team | sumPoints) / maxPoints * 100) + '%'">{{team.name}}</div>
+            <div class="team-box px-3 py-1" [style.left]="((team | sumPoints) / maxPoints * 100) + '%'">{{team.name}}<span class="points">{{team | sumPoints}}</span></div>
         </div>
     </div>
+    <div class="lines">
+        <div [style.left]="'80%'"></div>
+    </div>
+    <h1 class="display-1 countdown">
+        <countdown *ngIf="showCountdown" #cd [config]="config"></countdown>
+    </h1>
 </main>

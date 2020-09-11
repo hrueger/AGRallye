@@ -7,17 +7,26 @@
     position: relative;
     width: fit-content;
     background-color: transparent;
-    line-height: 2.5rem;
     border: 2px solid rgb(0, 183, 255);
-    height: 4rem;
-    top: -2.5rem;
+    height: 5rem;
+    top: -3rem;
+    span.points {
+        width: 100%;
+        text-align: center;
+        display: block;
+        font-size: 150%;
+        font-weight: bold;
+    }
 }
 
 .countdown {
     position: absolute;
-    font-family: 'Courier New', Courier, monospace;
     bottom: 0;
     right: 3rem;
+}
+
+.h1 {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 main {
@@ -28,4 +37,18 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
+}
+
+.lines {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    div {
+        position: absolute;
+        width: 1px;
+        background-color: rgb(158, 158, 158);
+        height: 70vh;
+    }
 }

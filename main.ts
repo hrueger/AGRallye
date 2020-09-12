@@ -20,7 +20,7 @@ function createWindows(): void {
         (display) => display.bounds.x !== 0 || display.bounds.y !== 0,
     );
     backendWindow = new BrowserWindow({
-        icon: path.join(__dirname, "src/assets/icons/favicon.png"),
+        icon: path.join(__dirname, "src/assets/icons/icon.png"),
         webPreferences: {
             nodeIntegration: true,
             webSecurity: false,
@@ -31,7 +31,7 @@ function createWindows(): void {
         backgroundColor: "#1E1E1E",
     });
     frontendWindow = new BrowserWindow({
-        icon: path.join(__dirname, "src/assets/icons/favicon.png"),
+        icon: path.join(__dirname, "src/assets/icons/icon.png"),
         x: externalDisplay?.bounds?.x || 0,
         y: externalDisplay?.bounds?.y || 0,
         fullscreen: !!externalDisplay,

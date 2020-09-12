@@ -1,7 +1,8 @@
 {
     "productName": "AGRallye",
     "directories": {
-        "output": "release/"
+        "output": "release/",
+        "buildResources": "src/assets/icons/"
     },
     "files": [
         "**/*",
@@ -19,7 +20,7 @@
         "!tslint.json"
     ],
     "extraResources": [
-        "src/assets/icons/favicon.png"
+        "src/assets/icons/icon.png"
     ],
     "win": {
         "icon": "dist/assets/icons",

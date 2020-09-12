@@ -3,8 +3,8 @@ import {
 } from "@angular/core";
 import { remote } from "electron";
 import { CountdownComponent } from "ngx-countdown";
+import { SumPointsPipe } from "src/app/_pipes/sum-points.pipe";
 import { Team } from "../../_models/Team";
-import { SumPointsPipe } from 'src/app/_pipes/sum-points.pipe';
 
 declare const FlipClock: any;
 declare const $: any;

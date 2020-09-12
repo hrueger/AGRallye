@@ -5,12 +5,12 @@ import { RouterModule, Routes } from "@angular/router";
 import localeDe from "@angular/common/locales/de";
 import localeDeExtra from "@angular/common/locales/extra/de";
 import { registerLocaleData } from "@angular/common";
+import { CountdownModule } from "ngx-countdown";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FrontendComponent } from "./_components/frontend/frontend.component";
 import { BackendComponent } from "./_components/backend/backend.component";
-import { CountdownModule } from 'ngx-countdown';
-import { SumPointsPipe } from './_pipes/sum-points.pipe';
+import { SumPointsPipe } from "./_pipes/sum-points.pipe";
 
 registerLocaleData(localeDe, localeDeExtra);
 

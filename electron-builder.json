@@ -19,7 +19,7 @@
         "!tslint.json"
     ],
     "extraResources": [
-        "src/assets/icons/logo.png"
+        "src/assets/icons/favicon.png"
     ],
     "win": {
         "icon": "dist/assets/icons",

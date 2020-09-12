@@ -1,4 +1,4 @@
-# <img src="src/assets/icons/logo.png" height="30px"> AGRallye
+# <img src="src/assets/icons/favicon.png" height="30px"> AGRallye
 [![Production build](https://github.com/hrueger/AGRallye/workflows/Production%20build/badge.svg)](https://github.com/hrueger/AGRallye/actions)
 [![Lint](https://github.com/hrueger/AGRallye/workflows/Lint/badge.svg)](https://github.com/hrueger/AGRallye/actions)
 [![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE.md)

@@ -1,6 +1,6 @@
 {
     "name": "agrallye",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A simple app to display teams and their current points in fullscreen on a second monitor in a school-chalkboard-like style.",
     "author": {
         "name": "Hannes Rüger"

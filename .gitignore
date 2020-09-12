@@ -2,6 +2,7 @@
 
 main.js
 main.js.map
+release/
 
 # compiled output
 /dist

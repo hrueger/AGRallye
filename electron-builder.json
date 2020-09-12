@@ -1,0 +1,31 @@
+{
+    "productName": "AGRallye",
+    "directories": {
+        "output": "release/"
+    },
+    "files": [
+        "**/*",
+        "!**/*.ts",
+        "!*.code-workspace",
+        "!LICENSE.md",
+        "!package.json",
+        "!package-lock.json",
+        "!e2e/",
+        "!hooks/",
+        "!angular.json",
+        "!_config.yml",
+        "!karma.conf.js",
+        "!tsconfig.json",
+        "!tslint.json"
+    ],
+    "extraResources": [
+        "src/assets/icons/logo.png"
+    ],
+    "win": {
+        "icon": "dist/assets/icons",
+        "target": [
+            "nsis"
+        ],
+        "publish": ["github"]
+    }
+}

@@ -10,7 +10,7 @@
     height: 5rem;
     top: -3rem;
     .team-box {
-        border: 2px solid rgb(0, 183, 255);
+        border: 2px solid #fff;
         display: inline-block;
         span.points {
             width: 100%;
@@ -41,8 +41,8 @@
     right: 3rem;
 }
 
-.h1 {
-    font-family: 'Courier New', Courier, monospace;
+* {
+    font-family: Chalk;
 }
 
 main {

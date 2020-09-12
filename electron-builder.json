@@ -27,5 +27,19 @@
             "nsis"
         ],
         "publish": ["github"]
+    },
+    "mac": {
+        "icon": "dist/assets/icons",
+        "target": [
+            "dmg"
+        ],
+        "publish": ["github"]
+    },
+    "linux": {
+        "icon": "dist/assets/icons",
+        "target": [
+            "AppImage"
+        ],
+        "publish": ["github"]
     }
 }

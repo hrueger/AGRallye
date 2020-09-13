@@ -29,6 +29,8 @@ function createWindows(): void {
         },
         frame: false,
         backgroundColor: "#1E1E1E",
+        minHeight: 600,
+        minWidth: 1200,
     });
     frontendWindow = new BrowserWindow({
         icon: path.join(__dirname, "src/assets/icons/icon.png"),
@@ -43,6 +45,8 @@ function createWindows(): void {
         },
         frame: false,
         backgroundColor: "#1E1E1E",
+        minHeight: 600,
+        minWidth: 1200,
     });
 
     if (serve) {

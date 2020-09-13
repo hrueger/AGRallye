@@ -5,19 +5,8 @@
         "buildResources": "src/assets/icons/"
     },
     "files": [
-        "**/*",
-        "!**/*.ts",
-        "!*.code-workspace",
-        "!LICENSE.md",
-        "!package.json",
-        "!package-lock.json",
-        "!e2e/",
-        "!hooks/",
-        "!angular.json",
-        "!_config.yml",
-        "!karma.conf.js",
-        "!tsconfig.json",
-        "!tslint.json"
+        "dist/*",
+        "main.js"
     ],
     "extraResources": [
         "src/assets/icons/icon.png"

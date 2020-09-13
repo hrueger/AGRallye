@@ -59,13 +59,13 @@ function createWindows(): void {
         backendWindow.loadURL("http://localhost:4200/#/backend");
         frontendWindow.loadURL("http://localhost:4200");
     } else {
-        backendWindow.loadURL(url.format({
+        backendWindow.loadURL(`${url.format({
             pathname: path.join(__dirname, "dist/index.html"),
             protocol: "file:",
             slashes: true,
-        }));
+        })}#/backend`);
         frontendWindow.loadURL(url.format({
-            pathname: path.join(__dirname, "dist/index.html/#/backend"),
+            pathname: path.join(__dirname, "dist/index.html"),
             protocol: "file:",
             slashes: true,
         }));

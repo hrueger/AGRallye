@@ -80,6 +80,9 @@ function createWindows(): void {
     ipcMain.on("show-places", (...data: any) => {
         frontendWindow.emit("show-places", ...data);
     });
+    ipcMain.on("update-max-points", (...data: any) => {
+        frontendWindow.emit("update-max-points", ...data);
+    });
 
     backendWindow.on("closed", () => {
         app.quit();

@@ -37,11 +37,15 @@
 
             <h3 class="mt-4">Platzierungen</h3>
 
-
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" id="showPlaces" value="true" (change)="showPlaces($event)" class="custom-control-input">
                 <label for="showPlaces" class="custom-control-label">Platzierungen anzeigen</label>
             </div>
+
+
+            <h3 class="mt-4">Maximale Punkzahl</h3>
+
+            <input type="number" id="maxPoints" value="60" (change)="updateMaxPoints($event)" class="form-control" placeholder="Maximale Punktzahl">
 
             <div class="countdown display-3">
                 <countdown *ngIf="showCountdown" #cd [config]="config"></countdown>

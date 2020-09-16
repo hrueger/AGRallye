@@ -64,6 +64,13 @@ export class FrontendComponent implements OnInit {
                 this.showPlaces = v;
             });
         });
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        remote.ipcMain.on("update-max-points", (v: number) => {
+            this.zone.run(() => {
+                this.maxPoints = v;
+            });
+        });
     }
 
     public getPlace(team: Team): number {

@@ -111,6 +111,10 @@ export class BackendComponent implements OnInit {
         remote.ipcMain.emit("update-teams", this.teams);
     }
 
+    public updateMaxPoints(event: Event): void {
+        remote.ipcMain.emit("update-max-points", parseInt((event.target as HTMLInputElement)?.value || "60", 10) || 60);
+    }
+
     public async addTask(): Promise<void> {
         this.teams[this.currentTeamIdx].tasks.push({
             task: (await Swal.fire({

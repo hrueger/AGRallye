@@ -7,5 +7,14 @@
 
 This is a simple app to display teams and their current points in fullscreen on a second monitor in a school-chalkboard-like style.
 
+## Screenshots
+| Backend | Frontend |
+| ------- | -------- |
+| ![Screenshot](./screenshots/01.png) | ![Screenshot](./screenshots/02.png) |
+
+| Beautiful Dialogs | Show rankings |
+| ------- | -------- |
+| ![Screenshot](./screenshots/03.png) | ![Screenshot](./screenshots/04.png) |
+
 ## Download
 See [releases](https://github.com/hrueger/AGRallye/releases)
